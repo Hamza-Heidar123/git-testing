@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: uses: osiegmar/s3-publish-action@16160a159db8233ebe91802d13795d26aa124706
+    - uses: osiegmar/s3-publish-action@16160a159db8233ebe91802d13795d26aa124706
       with:
         args: --bucket=hamza-testing-bucket
       env:
