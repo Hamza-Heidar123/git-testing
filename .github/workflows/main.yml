@@ -1,15 +1,14 @@
-name: Publish Website
-
-on: push
-
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: osiegmar/s3-publish-action@16160a159db8233ebe91802d13795d26aa124706
-      with:
-        args: --bucket=hamza-testing-bucket
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+- name: Use S3cmd
+  # You may pin to the exact commit or the version.
+  # uses: s3-actions/s3cmd@a70db2dfd1658101fc91eebe3d3fdbaf7205ff46
+  uses: s3-actions/s3cmd@v1.3.0
+  with:
+    # config provider to make it easier to use the cli as action
+    provider: # optional, default is linode
+    # s3 region (default region depends on the provider)
+    region: # optional
+    # s3 access key
+    access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    # s3 secret key
+    secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: Deploy to S3
