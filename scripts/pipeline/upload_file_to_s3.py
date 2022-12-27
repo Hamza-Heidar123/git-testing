@@ -25,7 +25,7 @@ def main():
         Filename=local_path,
         Bucket=bucket_name,
         Key=aws_key,
-        contentType='text/css'
+        ExtraArgs={'ContentType': "text/css"},
     )
     print ('Done uploading')
 
