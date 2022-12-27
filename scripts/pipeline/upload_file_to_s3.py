@@ -24,7 +24,8 @@ def main():
     response = client.upload_file(
         Filename=local_path,
         Bucket=bucket_name,
-        Key=aws_key
+        Key=aws_key,
+        contentType='text/css'
     )
     print ('Done uploading')
 
